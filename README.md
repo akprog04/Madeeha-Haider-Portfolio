@@ -1,16 +1,41 @@
-# Madeeha Haider — The Interactive Archive (Curated Portfolio)
+# Madeeha Haider — The Interactive Archive
 
-A responsive, animated digital museum portfolio built with HTML, CSS and JavaScript.
+A premium, responsive game developer portfolio combining a **futuristic interactive digital museum** with the **clear case studies, filtered project gallery, and experience timeline** of a conventional developer portfolio.
 
-## Featured work
-- [Stack & Solve on Google Play](https://play.google.com/store/apps/details?id=com.akstudios.StackSolvePuzzleGames)
-- [Google Drive project demos](https://drive.google.com/drive/folders/1j7fGOsFaHWYwNSSBdVaI9EEwy1kGppBn?usp=sharing)
-- Original Virtual Science Lab footage in `assets/virtual-science-lab-demo.mp4`
+## What's included
 
-## Local preview
-Run `python -m http.server 8000` from the repository root, then open http://localhost:8000/.
+- Animated, accessible hero art installation, scrolling marquee and reveal transitions
+- Four interactive museum galleries: Games, AR / VR, Systems, Products
+- Project library with filterable cards and detailed, keyboard-operable case study dialogs
+- Verified Madeeha Haider experience, skills, education and projects based on her CV
+- Real Virtual Science Lab footage and locally hosted demo video
+- Illustrative Mello Games Studios showcase images **clearly labeled as concept/showcase artwork** — these are not presented as actual gameplay screenshots or independently verified Madeeha project credits
+- Responsive mobile navigation; reduced-motion preference and an on-page toggle
+- Pure HTML/CSS/JS — **no build step required** and relative asset URLs work on GitHub Pages project repositories
 
-## GitHub Pages
-In Settings → Pages, select GitHub Actions. Each push to `main` triggers `.github/workflows/pages.yml` to deploy.
+## Run locally
 
-Project media is credited in the site. The illustrative game and avatar visuals are not claims of gameplay footage. The Google Drive folder is linked for other original demos; individual video file IDs are not claimed as verified.
+```bash
+python -m http.server 8000
+# Open http://localhost:8000/
+```
+
+## Deploy to GitHub Pages
+
+### Option A: Repository Settings (simple)
+
+Upload all files to a GitHub repository. In **Settings → Pages → Build and deployment**, select **Deploy from a branch**, branch `main`, folder `/(root)`.
+
+### Option B: GitHub Actions
+
+The repo includes `.github/workflows/pages.yml`. Go to **Settings → Pages**, select **GitHub Actions** as the publishing source. The workflow publishes the static site on pushes to `main`.
+
+A project repository publishes at `https://USERNAME.github.io/REPOSITORY/`.
+
+## Updating projects
+
+Open `main.js` and edit `archiveProjects`. Each project includes `title`, `description`, `category`, `contributions`, `image`, `tags`, and optional `video`/`links`. The archive and modal automatically update from this data.
+
+## Before public launch
+
+Confirm the final public branding (Madeeha portfolio vs Mello Games Studios), validate legal rights to screenshots and footage, review project descriptions and personal email, and replace illustrative showcase art with actual project screenshots wherever available. This first version intentionally avoids claiming unverified individual credits.
