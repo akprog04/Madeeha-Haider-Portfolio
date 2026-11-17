@@ -197,12 +197,15 @@ function closeVideo() {
   if (video) {
     video.pause();
     video.removeAttribute('src');
+    video.removeAttribute('poster');
     video.load();
     video.hidden = true;
+    video.style.display = 'none';
   }
   if (driveFrame) {
     driveFrame.removeAttribute('src');
     driveFrame.hidden = true;
+    driveFrame.style.display = 'none';
   }
   if (dialog && dialog.open) dialog.close();
   document.body.style.overflow = '';
@@ -225,8 +228,10 @@ document.addEventListener('click', e => {
     if (driveFrame) {
       driveFrame.removeAttribute('src');
       driveFrame.hidden = true;
+      driveFrame.style.display = 'none';
     }
     video.hidden = false;
+    video.style.display = 'block';
     video.poster = p.poster;
     video.src = p.video;
     dialog.showModal();
@@ -236,9 +241,13 @@ document.addEventListener('click', e => {
     if (video) {
       video.pause();
       video.removeAttribute('src');
+      video.removeAttribute('poster');
+      video.load();
       video.hidden = true;
+      video.style.display = 'none';
     }
     driveFrame.hidden = false;
+    driveFrame.style.display = 'block';
     driveFrame.src = `https://drive.google.com/file/d/${p.driveId}/preview`;
     dialog.showModal();
     document.body.style.overflow = 'hidden';

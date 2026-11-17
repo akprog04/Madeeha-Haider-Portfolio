@@ -461,6 +461,7 @@
   width: 100%;
   aspect-ratio: 16 / 9;
   max-height: 68svh;
+  overflow: hidden;
 }
 
 #portfolioPlayer,
@@ -470,6 +471,11 @@
   display: block;
   border: 0;
   background: #080a07;
+}
+
+#portfolioPlayer[hidden],
+#drivePlayer[hidden] {
+  display: none !important;
 }
 
 #portfolioPlayer {
