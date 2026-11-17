@@ -1,33 +1,309 @@
 'use strict';
-const archiveProjects = [
-  {id:'virtual-lab',title:'Virtual Science Lab',category:'AR / VR',code:'EXHIBIT 001',image:'assets/lab-36.jpg',tags:['Unity','AR / VR','Simulation'],subtitle:'Making scientific exploration interactive.',description:'An immersive science-learning experience with interactive virtual laboratory activities. Developed to help learners explore experiments and concepts in simulated environments.',contributions:['Built interactive laboratory experiences using Unity.','Worked on AR/VR interactions and visual learning workflows.','Created a working guided chemistry prototype with equipment placement and instructional prompts.'],role:'AR/VR development',note:'This exhibit includes real captured demonstration footage from the project.',video:'assets/virtual-science-lab-demo.mp4',links:[['Explore project archive','https://drive.google.com/drive/folders/1j7fGOsFaHWYwNSSBdVaI9EEwy1kGppBn']]},
-  {id:'vtuber',title:'AR VTuber / Live Avatar',category:'Systems',code:'EXHIBIT 002',image:'assets/vtuber-art.webp',tags:['Unity','MediaPipe','Live2D'],subtitle:'Bringing avatars to life in real time.',description:'A Unity-based real-time avatar application connecting MediaPipe facial tracking with Live2D Cubism character models. Work included streaming-oriented character interaction and multiplayer-related concepts.',contributions:['Integrated MediaPipe face-tracking signals into a Unity application.','Mapped Live2D Cubism character behavior for responsive facial movement.','Contributed to multiplayer and real-time interaction features over approximately one year.'],role:'Unity development · real-time systems',note:'Hero artwork is illustrative, not an application screenshot. Request original demo footage for a full breakdown.',links:[['View demonstration archive','https://drive.google.com/drive/folders/1j7fGOsFaHWYwNSSBdVaI9EEwy1kGppBn']]},
-  {id:'game-prototypes',title:'Unity Gameplay Prototypes',category:'Games',code:'EXHIBIT 003',image:'assets/snake-art.webp',tags:['Unity','C#','Mobile'],subtitle:'Responsive mechanics, crafted to feel good.',description:'Mobile gameplay prototyping and iterative mechanics work, including input systems, game feel, interface flows, and monetization integration during studio development.',contributions:['Designed and prototyped mechanics for mobile Unity projects.','Collaborated with developers and artists on gameplay refinement.','Integrated Google AdMob monetization into mobile game workflows.'],role:'Game development · studio work',note:'Illustrative studio showcase artwork; exact game credits and gameplay captures are pending confirmation.',links:[['Discuss this experience','mailto:madeehahaider5@gmail.com?subject=Unity%20Gameplay%20Experience']]},
-  {id:'fps-systems',title:'FPS & Reactive Systems',category:'Games',code:'EXHIBIT 004',image:'assets/buildx-art.webp',tags:['Unity','FPS','C#'],subtitle:'Mechanics that respond to every action.',description:'Gameplay development across first-person mechanics, audio-responsive systems, player abilities, and cinematic moments.',contributions:['Implemented sound-reactive gameplay behavior and FPS mechanics.','Developed player abilities and interactive gameplay sequences.','Contributed to cinematic gameplay presentation.'],role:'Game development',note:'Image is illustrative showcase art; it is not footage from these FPS projects.',links:[['Contact for gameplay samples','mailto:madeehahaider5@gmail.com?subject=FPS%20Gameplay%20Samples']]},
-  {id:'playable-ads',title:'Playable Ad Experiences',category:'Products',code:'EXHIBIT 005',image:'assets/stack-art.webp',tags:['Interactive Ads','UI Flows','Prototyping'],subtitle:'Small experiences, immediate engagement.',description:'Interactive playable-ad experiences created for campaigns involving well-known consumer and entertainment brands, with a focus on approachable interactions.',contributions:['Developed bite-sized interactive ad flows for campaign experiences.','Implemented intuitive visual feedback and streamlined user journeys.','Iterated to support user engagement and conversion-oriented flows.'],role:'Playable ad development',note:'Campaign references from CV include Pepsi, Coca-Cola, and Netflix. No brand endorsement or ownership is implied. Image is illustrative.',links:[['Discuss playable development','mailto:madeehahaider5@gmail.com?subject=Playable%20Ad%20Development']]},
-  {id:'multiplayer-qa',title:'Multiplayer & QA',category:'Systems',code:'EXHIBIT 006',image:'assets/trail-art.webp',tags:['Unreal','Testing','Jira'],subtitle:'Prototyping, debugging, and making systems dependable.',description:'Testing and debugging multiplayer and metaverse-style Unreal Engine builds, alongside practical experience with multiplayer concepts in Unity.',contributions:['Tested multiplayer-style experiences and reported technical issues.','Tracked bugs and reproduction steps using Jira.','Worked with real-time application concepts and cross-functional feedback.'],role:'3D game testing · interactive systems',note:'The visual is illustrative studio art, not a screenshot of the tested projects.',links:[['Get in touch','mailto:madeehahaider5@gmail.com?subject=Multiplayer%20and%20QA']]}
+
+const projects = [
+  {
+    id: 'stack-solve',
+    title: 'Stack & Solve: Puzzle Games',
+    category: 'Games',
+    poster: 'assets/stack-solve-google-play.webp',
+    href: 'projects/stack-solve/',
+    store: 'https://play.google.com/store/apps/details?id=com.akstudios.StackSolvePuzzleGames&hl=en',
+    description: '13 puzzle game modes in one Android collection.',
+    tags: ['Android', 'Puzzle']
+  },
+  {
+    id: 'science-lab',
+    title: 'Virtual Science Lab',
+    category: 'AR / VR',
+    poster: 'assets/media/science-lab.jpg',
+    video: 'assets/media/science-lab.mp4',
+    driveId: '1Wr1_1XzGM-plMbVUgqHfIKwohWrj4g_N',
+    drive: 'https://drive.google.com/file/d/1Wr1_1XzGM-plMbVUgqHfIKwohWrj4g_N/view',
+    description: 'Interactive laboratory demonstration.',
+    tags: ['Interactive', 'Real-time']
+  },
+  {
+    id: 'vtuber',
+    title: 'VTuber / Live Avatar',
+    category: 'AR / VR',
+    poster: 'assets/media/vtuber.jpg',
+    driveId: '18m9gtueXiLBxDXEMpQJ4kZqvINB8P9MC',
+    drive: 'https://drive.google.com/file/d/18m9gtueXiLBxDXEMpQJ4kZqvINB8P9MC/view',
+    description: 'Real-time avatar demonstration.',
+    tags: ['Interactive', 'Real-time']
+  },
+  {
+    id: 'chocolate-chip',
+    title: 'Chocolate Chip Game',
+    category: 'Products',
+    poster: 'assets/media/chocolate-chip.jpg',
+    driveId: '1tK8GL-wIIuHPWAVaqWAbOpz4QwQvYJoZ',
+    drive: 'https://drive.google.com/file/d/1tK8GL-wIIuHPWAVaqWAbOpz4QwQvYJoZ/view',
+    description: 'HTML5 marketing minigame demonstration.',
+    tags: ['HTML5', 'Playable ad']
+  },
+  {
+    id: 'cocomo-pop',
+    title: 'Cocomo Pop',
+    category: 'Products',
+    poster: 'assets/media/cocomo-pop.jpg',
+    driveId: '1Sm4YTP9OkSsZZbI7Tk5zBFMy-6gDWbWW',
+    drive: 'https://drive.google.com/file/d/1Sm4YTP9OkSsZZbI7Tk5zBFMy-6gDWbWW/view',
+    description: 'HTML5 marketing minigame demonstration.',
+    tags: ['HTML5', 'Playable ad']
+  },
+  {
+    id: 'lifebuoy',
+    title: 'Lifebuoy Tic Tac Toe',
+    category: 'Products',
+    poster: 'assets/media/lifebuoy.jpg',
+    driveId: '1bku_g_GVA8L9FBHFVXau7ADHnwHMfnCk',
+    drive: 'https://drive.google.com/file/d/1bku_g_GVA8L9FBHFVXau7ADHnwHMfnCk/view',
+    description: 'HTML5 marketing minigame demonstration.',
+    tags: ['HTML5', 'Playable ad']
+  },
+  {
+    id: 'pepsi-memory',
+    title: 'PEPSI Memory Game',
+    category: 'Products',
+    poster: 'assets/media/pepsi-memory.jpg',
+    driveId: '1WeL2hwnSGYn46KC0DkDUKLY5jZ-sKzqg',
+    drive: 'https://drive.google.com/file/d/1WeL2hwnSGYn46KC0DkDUKLY5jZ-sKzqg/view',
+    description: 'HTML5 marketing minigame demonstration.',
+    tags: ['HTML5', 'Playable ad']
+  },
+  {
+    id: 'rio-factory',
+    title: 'RIO Chocolate Factory',
+    category: 'Products',
+    poster: 'assets/media/rio-factory.jpg',
+    driveId: '1t9ITm-5VOaBHIj3oSguE9IKO_QcjSbVr',
+    drive: 'https://drive.google.com/file/d/1t9ITm-5VOaBHIj3oSguE9IKO_QcjSbVr/view',
+    description: 'HTML5 marketing minigame demonstration.',
+    tags: ['HTML5', 'Playable ad']
+  },
+  {
+    id: 'rio-lunchbox',
+    title: 'RIO Lunchbox',
+    category: 'Products',
+    poster: 'assets/media/rio-lunchbox.jpg',
+    driveId: '1BSXh52z604Z3knjl1AB3naukOg72UWWx',
+    drive: 'https://drive.google.com/file/d/1BSXh52z604Z3knjl1AB3naukOg72UWWx/view',
+    description: 'HTML5 marketing minigame demonstration.',
+    tags: ['HTML5', 'Playable ad']
+  },
+  {
+    id: 'sprite-bubbles',
+    title: 'Sprite Bubble Popper',
+    category: 'Products',
+    poster: 'assets/media/sprite-bubbles.jpg',
+    driveId: '1MHNQBX4r3pUcNsSg69LV0tTKDp-xKivF',
+    drive: 'https://drive.google.com/file/d/1MHNQBX4r3pUcNsSg69LV0tTKDp-xKivF/view',
+    description: 'HTML5 marketing minigame demonstration.',
+    tags: ['HTML5', 'Playable ad']
+  },
+  {
+    id: 'mendability',
+    title: 'Mendability Prototype',
+    category: 'Games',
+    poster: 'assets/media/mendability.jpg',
+    driveId: '1RMu8TL5AaRVJpWesWd_WHUZCBFeZC-AD',
+    drive: 'https://drive.google.com/file/d/1RMu8TL5AaRVJpWesWd_WHUZCBFeZC-AD/view',
+    description: 'A recorded walkthrough of the Unity prototype.',
+    tags: ['Unity', 'Gameplay']
+  },
+  {
+    id: 'bowling',
+    title: 'Shuffleboard: Bowling Mode',
+    category: 'Games',
+    poster: 'assets/media/bowling.jpg',
+    driveId: '1V4PzpaPyZheI_95r9IqBt5l-feqbiyQx',
+    drive: 'https://drive.google.com/file/d/1V4PzpaPyZheI_95r9IqBt5l-feqbiyQx/view',
+    description: 'Bowling mode gameplay from the Shuffleboard project.',
+    tags: ['Unity', 'Gameplay']
+  },
+  {
+    id: 'curling',
+    title: 'Shuffleboard: Curling Mode',
+    category: 'Games',
+    poster: 'assets/media/curling.jpg',
+    driveId: '1yQqUiXc2dGUxsodNJkpkuyJYGZF9OPQz',
+    drive: 'https://drive.google.com/file/d/1yQqUiXc2dGUxsodNJkpkuyJYGZF9OPQz/view',
+    description: 'Curling mode gameplay from the Shuffleboard project.',
+    tags: ['Unity', 'Gameplay']
+  },
+  {
+    id: 'shuffleboard',
+    title: 'Shuffleboard Game',
+    category: 'Games',
+    poster: 'assets/media/shuffleboard.jpg',
+    driveId: '1Qv4Sn1MqUItapZeI-SY1DEKNIHHNbkkA',
+    drive: 'https://drive.google.com/file/d/1Qv4Sn1MqUItapZeI-SY1DEKNIHHNbkkA/view',
+    description: 'Shuffleboard mode gameplay demonstration.',
+    tags: ['Unity', 'Gameplay']
+  },
+  {
+    id: 'face-tracker',
+    title: 'Face Tracker App',
+    category: 'Games',
+    poster: 'assets/media/face-tracker.jpg',
+    driveId: '1cW5AYkgCpy8HFOR1UBJPi6cRMAt2bAE-',
+    drive: 'https://drive.google.com/file/d/1cW5AYkgCpy8HFOR1UBJPi6cRMAt2bAE-/view',
+    description: 'Face-tracking application demonstration.',
+    tags: ['Unity', 'Face tracking']
+  }
 ];
-const galleryInfo={
-  games:{label:'01 / GAMES',title:'The Game Worlds',subtitle:'DESIGNED TO BE PLAYED.',description:'From responsive gameplay mechanics to interactive prototypes, explore projects built with Unity and C#.',back:'GAME WORLDS',left:'assets/snake-art.webp',right:'assets/buildx-art.webp',tint:'#71d9ee',filter:'Games'},
-  immersive:{label:'02 / AR / VR',title:'The Immersive Lab',subtitle:'BEYOND THE SCREEN.',description:'Interactive science experiments and environments that move learning into a new dimension.',back:'IMMERSIVE LAB',left:'assets/science-art.webp',right:'assets/lab-4.jpg',tint:'#87d7d2',filter:'AR / VR'},
-  systems:{label:'03 / SYSTEMS',title:'The Systems Chamber',subtitle:'MADE TO RESPOND.',description:'Real-time facial animation, multiplayer concepts, testing, and the systems behind interactive experiences.',back:'LIVE SYSTEMS',left:'assets/vtuber-art.webp',right:'assets/trail-art.webp',tint:'#c1a8ff',filter:'Systems'},
-  products:{label:'04 / PRODUCTS',title:'The Product Vault',subtitle:'INTERACTION WITH PURPOSE.',description:'Playable advertisements, prototypes, and thoughtful interfaces created to engage and communicate.',back:'PRODUCT VAULT',left:'assets/stack-art.webp',right:'assets/smash-art.webp',tint:'#f1c98e',filter:'Products'}
-};
-const $=(q,root=document)=>root.querySelector(q),$$=(q,root=document)=>[...root.querySelectorAll(q)];
-const cards=$('#projectGrid');let activeFilter='All';
-function renderCards(){const list=archiveProjects.filter(x=>activeFilter==='All'||x.category===activeFilter);$('#projectCount').textContent=String(list.length).padStart(2,'0');cards.innerHTML=list.map(p=>`<article class="project-card" role="button" tabindex="0" data-open-project="${p.id}" aria-label="Open case study for ${p.title}"><div class="project-card-media"><img src="${p.image}" alt="${p.title} project artwork" loading="lazy"><span class="card-id">${p.code}</span><span class="card-category">${p.category}</span></div><div class="project-card-content"><h4>${p.title}</h4><p>${p.subtitle} ${p.description.slice(0,90)}…</p><div class="project-card-bottom"><div class="tech-list">${p.tags.map(t=>`<span>${t}</span>`).join('')}</div><span class="card-arrow" aria-hidden="true">↗</span></div></div></article>`).join('');}
-function setFilter(value){activeFilter=value;$$('.filter-chip').forEach(b=>{const selected=b.dataset.filter===value;b.classList.toggle('active',selected);b.setAttribute('aria-pressed',String(selected));});renderCards();}
-$$('.filter-chip').forEach(b=>b.addEventListener('click',()=>setFilter(b.dataset.filter)));
-function setGallery(id){const g=galleryInfo[id];if(!g)return;const view=$('#museumViewport');view.style.setProperty('--gallery-tint',g.tint);$('#galleryNumber').textContent=g.label;$('#galleryTitle').textContent=g.title;$('#galleryDescription').textContent=g.description;$('#museumBackTitle').textContent=g.back;$('#museumBackSub').textContent=g.subtitle;$('#museumLeftImage').src=g.left;$('#museumRightImage').src=g.right;$('#plinthLabel').textContent=g.label.replace(' / ',' — ');const link=$('#museumExplore');link.dataset.filter=g.filter;$$('.gallery-tab').forEach(b=>{const selected=b.dataset.gallery===id;b.classList.toggle('is-selected',selected);b.setAttribute('aria-pressed',String(selected));});}
-$$('.gallery-tab').forEach(b=>b.addEventListener('click',()=>setGallery(b.dataset.gallery)));
-$('#museumExplore').addEventListener('click',function(){setFilter(this.dataset.filter||'All');});
-const modal=$('#projectModal'),content=$('#modalContent'),closeButton=$('#modalClose');let previousFocus=null;
-function openProject(id){const p=archiveProjects.find(x=>x.id===id);if(!p)return;previousFocus=document.activeElement;const extra=p.video?`<div class="modal-section"><h4>Experience it in motion</h4><div class="modal-video"><video controls preload="none" playsinline poster="assets/lab-19.jpg"><source src="${p.video}" type="video/mp4">Your browser does not support HTML5 video.</video></div><div class="modal-caption">REAL PROJECT DEMO · VIRTUAL SCIENCE LAB</div></div>`:'';content.innerHTML=`<div class="modal-hero"><img src="${p.image}" alt="${p.title} exhibit image"><span>${p.code} / ${p.category.toUpperCase()}</span></div><h2 class="modal-title">${p.title}</h2><p class="modal-lead">${p.description}</p><div class="modal-facts">${p.tags.map(t=>`<span>${t}</span>`).join('')}<span>${p.role}</span></div>${extra}<section class="modal-section"><h4>What Madeeha worked on</h4><ul>${p.contributions.map(s=>`<li>${s}</li>`).join('')}</ul></section><section class="modal-section"><h4>Exhibit notes</h4><p>${p.note}</p></section><div class="modal-buttons">${p.links.map(([label,href])=>`<a href="${href}" ${href.startsWith('http')?'target="_blank" rel="noopener noreferrer"':''}>${label} ↗</a>`).join('')}<a href="mailto:madeehahaider5@gmail.com?subject=Project%20Inquiry">Contact Madeeha ↗</a></div>`;modal.classList.add('open');modal.setAttribute('aria-hidden','false');document.body.style.overflow='hidden';closeButton.focus();}
-function closeModal(){const video=$('video',modal);if(video)video.pause();modal.classList.remove('open');modal.setAttribute('aria-hidden','true');document.body.style.overflow='';if(previousFocus&&previousFocus.isConnected)previousFocus.focus();}
-closeButton.addEventListener('click',closeModal);$$('[data-close-modal]').forEach(x=>x.addEventListener('click',closeModal));document.addEventListener('keydown',e=>{if(e.key==='Escape'&&modal.classList.contains('open'))closeModal();if(e.key==='Tab'&&modal.classList.contains('open')){const controls=$$('a,button,video[controls]',modal).filter(x=>x.offsetParent!==null);if(!controls.length)return;const first=controls[0],last=controls[controls.length-1];if(e.shiftKey&&document.activeElement===first){e.preventDefault();last.focus();}else if(!e.shiftKey&&document.activeElement===last){e.preventDefault();first.focus();}}});document.addEventListener('click',e=>{const trigger=e.target.closest('[data-open-project]');if(trigger)openProject(trigger.dataset.openProject);});document.addEventListener('keydown',e=>{const trigger=e.target.closest('[data-open-project]');if(trigger&&(e.key==='Enter'||e.key===' ')){e.preventDefault();openProject(trigger.dataset.openProject);}});
-const navToggle=$('#navToggle'),navLinks=$('#navLinks');navToggle.addEventListener('click',()=>{const next=!navLinks.classList.contains('open');navLinks.classList.toggle('open',next);navToggle.setAttribute('aria-expanded',String(next));navToggle.setAttribute('aria-label',next?'Close navigation':'Open navigation');});$$('.nav-links a').forEach(a=>a.addEventListener('click',()=>{navLinks.classList.remove('open');navToggle.setAttribute('aria-expanded','false');}));
-const mql=window.matchMedia('(prefers-reduced-motion: reduce)');let motionOff=mql.matches;function applyMotion(){document.body.classList.toggle('motion-off',motionOff);$('#reduceMotion').innerHTML=`MOTION: ${motionOff?'OFF':'ON'} <span>◌</span>`;$('#reduceMotion').setAttribute('aria-pressed',String(motionOff));}$('#reduceMotion').addEventListener('click',()=>{motionOff=!motionOff;applyMotion();});applyMotion();
-if('IntersectionObserver'in window){const io=new IntersectionObserver(entries=>{entries.forEach(x=>{if(x.isIntersecting){x.target.classList.add('in-view');io.unobserve(x.target);}})},{threshold:.1,rootMargin:'0px 0px -20px 0px'});$$('.reveal').forEach(x=>io.observe(x));}else{$$('.reveal').forEach(x=>x.classList.add('in-view'));}
-let raf=false;function onScroll(){if(raf)return;raf=true;requestAnimationFrame(()=>{const max=document.documentElement.scrollHeight-window.innerHeight;$('#scrollProgress').style.width=(max?window.scrollY/max*100:0)+'%';raf=false;});}window.addEventListener('scroll',onScroll,{passive:true});onScroll();
-const viewport=$('#museumViewport');if(window.matchMedia('(pointer:fine)').matches){viewport.addEventListener('pointermove',e=>{if(motionOff)return;const r=viewport.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;$('.holo-sculpture',viewport).style.transform=`translate(${x*10}px,${y*9}px)`;$('.back-title',viewport).style.transform=`translate(${x*-10}px,${y*-6}px)`;});viewport.addEventListener('pointerleave',()=>{$('.holo-sculpture',viewport).style.transform='';$('.back-title',viewport).style.transform='';});document.addEventListener('pointermove',e=>{if(!motionOff){const glow=$('#cursorGlow');glow.style.left=e.clientX+'px';glow.style.top=e.clientY+'px';}},{passive:true});}
-$('#year').textContent=new Date().getFullYear();renderCards();
+
+const grid = document.querySelector('#projectGrid');
+const featured = document.querySelector('#featuredCollection');
+const escapeHtml = s => s.replaceAll('&', '&amp;').replaceAll('"', '&quot;').replaceAll('<', '&lt;');
+const isVideoProject = p => Boolean(p.video || p.driveId);
+
+const cover = p => `<span class="media-backdrop" aria-hidden="true" style="background-image:url('${p.poster}')"></span><img src="${p.poster}" alt="${escapeHtml(p.title)} ${isVideoProject(p) ? 'video still' : 'official screenshot'}" loading="lazy">${isVideoProject(p) ? '<span class="video-play"><i class="play-icon" aria-hidden="true"></i> Watch demo</span>' : '<span class="video-play">Available on Google Play</span>'}`;
+
+const featureIds = ['stack-solve', 'science-lab'];
+if (featured) {
+  featured.innerHTML = featureIds.map(id => {
+    const p = projects.find(item => item.id === id);
+    if (!p) return '';
+    return `<article class="feature-tile">${isVideoProject(p) ? `<button type="button" class="feature-visual video-trigger" data-video="${p.id}" aria-label="Watch ${escapeHtml(p.title)}">${cover(p)}</button>` : `<a class="feature-visual" href="${p.href}">${cover(p)}</a>`}<div class="feature-info"><h3>${p.title}</h3><p>${p.description}</p></div></article>`;
+  }).join('');
+}
+
+function render(filter = 'All') {
+  const list = projects.filter(p => filter === 'All' || p.category === filter);
+  const countEl = document.querySelector('#projectCount');
+  if (countEl) countEl.textContent = `${list.length} / ${projects.length} projects`;
+  if (grid) {
+    grid.innerHTML = list.map(p => `<article class="project-card">${isVideoProject(p) ? `<button type="button" class="project-card-media video-trigger" data-video="${p.id}" aria-label="Watch ${escapeHtml(p.title)}">${cover(p)}</button>` : `<a class="project-card-media" href="${p.href}">${cover(p)}</a>`}<div class="project-card-content"><div class="project-role">${isVideoProject(p) ? 'VIDEO DEMONSTRATION' : 'RELEASED GAME / ANDROID'}</div><h4>${p.title}</h4><p>${p.description}</p><div class="tech-list">${p.tags.map(t => `<span>${t}</span>`).join('')}</div><div class="card-actions">${isVideoProject(p) ? `<button type="button" data-video="${p.id}">Watch video</button><a href="${p.drive}" target="_blank" rel="noopener noreferrer">Drive original</a>` : `<a href="${p.href}">View game</a><a href="${p.store}" target="_blank" rel="noopener noreferrer">Google Play</a>`}</div></div></article>`).join('');
+  }
+}
+
+document.querySelectorAll('.filter-chip').forEach(btn => btn.addEventListener('click', () => {
+  document.querySelectorAll('.filter-chip').forEach(x => {
+    x.classList.toggle('active', x === btn);
+    x.setAttribute('aria-pressed', String(x === btn));
+  });
+  render(btn.dataset.filter);
+}));
+render();
+
+const dialog = document.querySelector('#videoDialog');
+const video = document.querySelector('#portfolioPlayer');
+const driveFrame = document.querySelector('#drivePlayer');
+let previousFocus = null;
+
+function closeVideo() {
+  if (video) {
+    video.pause();
+    video.removeAttribute('src');
+    video.load();
+    video.hidden = true;
+  }
+  if (driveFrame) {
+    driveFrame.removeAttribute('src');
+    driveFrame.hidden = true;
+  }
+  if (dialog && dialog.open) dialog.close();
+  document.body.style.overflow = '';
+  if (previousFocus && previousFocus.isConnected) previousFocus.focus();
+}
+
+document.addEventListener('click', e => {
+  const trigger = e.target.closest('[data-video]');
+  if (!trigger || !dialog) return;
+  const p = projects.find(item => item.id === trigger.dataset.video);
+  if (!p || !isVideoProject(p)) return;
+  previousFocus = trigger;
+
+  const titleEl = document.querySelector('#videoTitle');
+  const origEl = document.querySelector('#videoOriginal');
+  if (titleEl) titleEl.textContent = p.title;
+  if (origEl) origEl.href = p.drive;
+
+  if (p.video && video) {
+    if (driveFrame) {
+      driveFrame.removeAttribute('src');
+      driveFrame.hidden = true;
+    }
+    video.hidden = false;
+    video.poster = p.poster;
+    video.src = p.video;
+    dialog.showModal();
+    document.body.style.overflow = 'hidden';
+    video.play().catch(() => {});
+  } else if (p.driveId && driveFrame) {
+    if (video) {
+      video.pause();
+      video.removeAttribute('src');
+      video.hidden = true;
+    }
+    driveFrame.hidden = false;
+    driveFrame.src = `https://drive.google.com/file/d/${p.driveId}/preview`;
+    dialog.showModal();
+    document.body.style.overflow = 'hidden';
+  }
+});
+
+const videoClose = document.querySelector('#videoClose');
+if (videoClose) videoClose.addEventListener('click', closeVideo);
+if (dialog) {
+  dialog.addEventListener('cancel', e => {
+    e.preventDefault();
+    closeVideo();
+  });
+  dialog.addEventListener('click', e => {
+    if (e.target === dialog) closeVideo();
+  });
+}
+
+const toggle = document.querySelector('#navToggle');
+const nav = document.querySelector('#navLinks');
+if (toggle && nav) {
+  toggle.addEventListener('click', () => {
+    const open = nav.classList.toggle('open');
+    toggle.setAttribute('aria-expanded', String(open));
+    toggle.setAttribute('aria-label', open ? 'Close navigation' : 'Open navigation');
+  });
+  nav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+    nav.classList.remove('open');
+    toggle.setAttribute('aria-expanded', 'false');
+  }));
+}
+
+let raf = false;
+const scrollBar = document.querySelector('#scrollProgress');
+if (scrollBar) {
+  const onScroll = () => {
+    if (raf) return;
+    raf = true;
+    requestAnimationFrame(() => {
+      const max = document.documentElement.scrollHeight - window.innerHeight;
+      scrollBar.style.width = (max > 0 ? (window.scrollY / max) * 100 : 0) + '%';
+      raf = false;
+    });
+  };
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+}
+
+const glow = document.querySelector('#cursorGlow');
+if (glow && window.matchMedia('(pointer:fine)').matches && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+  document.addEventListener('pointermove', e => {
+    glow.style.left = e.clientX + 'px';
+    glow.style.top = e.clientY + 'px';
+  }, { passive: true });
+}
+
+document.querySelectorAll('.reveal').forEach(el => el.classList.add('in-view'));
+const yr = document.querySelector('#year');
+if (yr) yr.textContent = new Date().getFullYear();
+
+document.querySelectorAll('a[href$="#projectGrid"]').forEach(a => a.addEventListener('click', e => {
+  if (!grid) return;
+  e.preventDefault();
+  grid.scrollIntoView({
+    behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth',
+    block: 'start'
+  });
+}));

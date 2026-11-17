@@ -1,17 +1,16 @@
-# Madeeha Haider — The Interactive Archive
+# Madeeha Haider — Projects & Interactive Experiences
 
-A premium, responsive game developer portfolio combining a **futuristic interactive digital museum** with the **clear case studies, filtered project gallery, and experience timeline** of a conventional developer portfolio.
+A responsive editorial game developer portfolio showcasing one published Android game (*Stack & Solve: Puzzle Games*) and 14 original video demonstrations from Madeeha Haider's Google Drive portfolio.
 
 ## What's included
 
-- Animated, accessible hero art installation, scrolling marquee and reveal transitions
-- Four interactive museum galleries: Games, AR / VR, Systems, Products
-- Project library with filterable cards and detailed, keyboard-operable case study dialogs
-- Verified Madeeha Haider experience, skills, education and projects based on her CV
-- Real Virtual Science Lab footage and locally hosted demo video
-- Illustrative Mello Games Studios showcase images **clearly labeled as concept/showcase artwork** — these are not presented as actual gameplay screenshots or independently verified Madeeha project credits
-- Responsive mobile navigation; reduced-motion preference and an on-page toggle
-- Pure HTML/CSS/JS — **no build step required** and relative asset URLs work on GitHub Pages project repositories
+- Warm obsidian & champagne gold editorial theme (`styles.css`, `premium.css`, `collection.css`, `refined.css`)
+- **In the spotlight** showcase (*Stack & Solve: Puzzle Games* + *Virtual Science Lab*)
+- **15-project filterable library** (`ALL`, `GAMES`, `AR / VR`, `PRODUCTS`) with real video stills in `assets/media/`
+- Native `<dialog>` video player modal supporting local video playback (`assets/media/science-lab.mp4`) and embedded Google Drive previews for all 14 project demos, plus direct links to the originals on Google Drive
+- Standalone *Stack & Solve* case study page at `projects/stack-solve/`
+- Skills toolkit, career timeline, player profile, contact section, and downloadable CV (`assets/Madeeha_Haider_CV.pdf`)
+- Pure HTML/CSS/JS — no build step required, with relative paths compatible with GitHub Pages project repositories
 
 ## Run locally
 
@@ -22,20 +21,4 @@ python -m http.server 8000
 
 ## Deploy to GitHub Pages
 
-### Option A: Repository Settings (simple)
-
-Upload all files to a GitHub repository. In **Settings → Pages → Build and deployment**, select **Deploy from a branch**, branch `main`, folder `/(root)`.
-
-### Option B: GitHub Actions
-
-The repo includes `.github/workflows/pages.yml`. Go to **Settings → Pages**, select **GitHub Actions** as the publishing source. The workflow publishes the static site on pushes to `main`.
-
-A project repository publishes at `https://USERNAME.github.io/REPOSITORY/`.
-
-## Updating projects
-
-Open `main.js` and edit `archiveProjects`. Each project includes `title`, `description`, `category`, `contributions`, `image`, `tags`, and optional `video`/`links`. The archive and modal automatically update from this data.
-
-## Before public launch
-
-Confirm the final public branding (Madeeha portfolio vs Mello Games Studios), validate legal rights to screenshots and footage, review project descriptions and personal email, and replace illustrative showcase art with actual project screenshots wherever available. This first version intentionally avoids claiming unverified individual credits.
+Push to `main` — `.github/workflows/pages.yml` automatically deploys the static site to GitHub Pages.

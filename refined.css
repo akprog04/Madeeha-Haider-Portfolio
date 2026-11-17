@@ -1,0 +1,52 @@
+/* Final visual polish & spacing refinements */
+html {
+  scroll-padding-top: 96px;
+}
+
+.collection-intro .btn-solid {
+  background: #dbc595;
+  color: #292416;
+}
+
+.collection-intro .btn-outline {
+  border-color: #87967b70;
+  color: #d9decf;
+}
+
+.video-trigger {
+  cursor: pointer;
+}
+
+.project-card-media .video-play {
+  left: 14px;
+  bottom: 14px;
+  padding: 8px 13px;
+  font-size: 10.5px;
+}
+
+.feature-visual:focus-visible,
+.project-card-media:focus-visible {
+  outline: 2px solid #d6bd8a;
+  outline-offset: -2px;
+}
+
+.card-actions button::after,
+.card-actions a::after {
+  content: "↗";
+  font-size: 11px;
+  opacity: .85;
+}
+
+.detail-sidebar a::after {
+  content: " ↗";
+}
+
+@media (max-width: 520px) {
+  .portfolio-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .portfolio-actions .btn {
+    width: 100%;
+  }
+}
